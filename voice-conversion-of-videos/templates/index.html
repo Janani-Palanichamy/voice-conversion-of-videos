@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video to Text Converter</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #89f7fe, #66a6ff);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px #000;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            text-shadow: 1px 1px 3px #000;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        .button:hover {
+            background-color: #ff8f7b;
+            transform: scale(1.1);
+            box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .download-btn {
+            background-color: #4CAF50;
+            display: none;
+        }
+        .download-btn:hover {
+            background-color: #66BB6A;
+        }
+        input[type="file"] {
+            padding: 10px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        #outputMessage {
+            font-size: 1.2rem;
+            color: #d4ffcc;
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-shadow: 1px 1px 2px #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎥 Video to Audio & Text Converter 🎵</h1>
+    <p>Turn your videos into transcribed and translated text!</p>
+
+    <!-- Upload Form -->
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label>Select a video file:</label>
+        <input type="file" name="audio_file" accept="video/*" required>
+        <br><br>
+        <button class="button" type="submit" value="upload">🎧 Convert</button>
+    </form>
+
+    <!-- Output Section -->
+    <h2>Transcribed & Translated Text:</h2>
+    <pre id="output">{{ output }}</pre>
+
+    <footer>
+        <p>Made with ❤️ for creators everywhere.</p>
+    </footer>
+</body>
+</html>

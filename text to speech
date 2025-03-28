@@ -1,0 +1,21 @@
+from gtts import gTTS
+import os
+
+# Get text and language from the user
+text = input("Enter the text you want to convert to audio: ")
+language = input("Enter the language code (e.g., 'en' for English, 'hi' for Hindi, 'ta' for Tamil): ")
+
+try:
+    # Convert the text to speech
+    tts = gTTS(text=text, lang=language, slow=False)
+
+    # Save the audio file
+    output_file = "output_audio.mp3"
+    tts.save(output_file)
+
+    # Play the audio file
+    os.system(f"start {output_file}")  # Use 'start' on Windows, 'open' on macOS, and 'xdg-open' on Linux
+
+    print(f"Audio file saved as {output_file} and is playing now.")
+except Exception as e:
+    print(f"An error occurred: {e}")
